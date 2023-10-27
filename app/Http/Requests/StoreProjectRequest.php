@@ -28,6 +28,8 @@ class StoreProjectRequest extends FormRequest
             'description'=> ['required', 'string', 'max: 500'],
             'link'=> ['required', 'string'],
             'slug'=> ['required', 'string'],
+            'type_id'=> ['nullable', 'integer','exists:types,id'],
+            // exists:types,id = se esiste nella tabella types, un campo id corrispondente
         ];
     }
 
@@ -45,6 +47,10 @@ class StoreProjectRequest extends FormRequest
             
             'slug.required'=> 'Lo slug è obbligatorio',
             'slug.string'=> 'Lo slug deve essere una stringa',
+
+            'type_id.integer'=> 'il tipo non è corretto',
+            'type_id.exists:types,id'=> 'il tipo non è corretto',
+            
         ];
     }
 }

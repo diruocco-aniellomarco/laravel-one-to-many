@@ -29,6 +29,9 @@
                     <tr>
                     <th scope="row">{{$project->id}}</th>
                     <td>{{$project->name}}</td>
+                    <td>
+                        <span class="badge rounded-pill text-bg-primary">{{$project->type?->label}}</span>
+                    </td>
                     <td>{{$project->description}}</td>
                     <td>{{$project->link}}</td>
                     <td>{{$project->slug}}</td>

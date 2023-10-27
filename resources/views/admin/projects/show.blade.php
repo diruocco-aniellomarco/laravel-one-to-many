@@ -10,19 +10,27 @@
 
         <h1>{{ $project->name }}</h1>
         <div class="row g-3 mt-3">
-            <div class="col-3">
+            <div class="col-2">
                 <strong>Slug</strong>
                 <p>{{ $project->slug }}</p>
             </div>
-            <div class="col-3">
+
+            <div class="col-2">
+                <strong>Tipi</strong>
+                <p>
+                    <span class="badge rounded-pill text-bg-primary">{{ $project->type?->label }}</span>
+                </p>
+            </div>
+
+            <div class="col-4">
                 <strong>Link</strong>
                 <p>{{ $project->link }}</p>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <strong>Created at</strong>
                 <p>{{ $project->created_at }}</p>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <strong>Updated at</strong>
                 <p>{{ $project->updated_at }}</p>
             </div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Type;
 
 //attivare se crei una validazione function 
 // use Illuminate\Support\Facades\Validator;
@@ -32,8 +33,9 @@ class ProjectController extends Controller
      * *@return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('admin.projects.create');
+    {   
+        $types = Type::all();
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -52,7 +54,7 @@ class ProjectController extends Controller
         // $data = $request->all(); 
 
         $data = $request->validated();
-
+        
         $project = new Project();
         $project->fill($data);
         $project->save();
@@ -79,7 +81,8 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+        $types = Type::all();
+        return view('admin.projects.edit', compact('project','types'));
     }
 
     /**
